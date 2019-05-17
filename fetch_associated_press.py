@@ -127,6 +127,7 @@ def get_new_stories(db=None) -> list:
     Return Value:
     Each returned dict includes the following keys:
 
+        guid: story id
         url: public url to the story
         publish_date
         title: headline
@@ -179,7 +180,7 @@ def get_new_stories(db=None) -> list:
         # Extract story text from nitf XML (body.content) and create story_data object
         soup = BeautifulSoup(nitf_content,features="html.parser")
         story_data = {}
-        story_data['id'] = guid
+        story_data['guid'] = guid
         story_data['publish_date'] = publish_date
         story_data['url'] = story_url
         story_data['text'] = soup.find('body.content').text
