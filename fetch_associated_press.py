@@ -74,6 +74,7 @@ class AssociatedPressAPI:
         """
 
         url = 'https://api.ap.org/media/v/content/{}'.format(path)
+
         params = {}
         params['apikey'] = self.api_key
         params.update(kwargs)
@@ -193,5 +194,3 @@ def get_new_stories(db=None) -> list:
 
     logger.info("Returning {} new stories.".format(len(items)))
     return items
-
-items = get_new_stories()
